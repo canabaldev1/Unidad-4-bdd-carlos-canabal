@@ -26,19 +26,24 @@ public class Unidad_4_bdd_carlos_canabal {
         String password = "Carlos123";
 
         try {
-            // Registrar el driver (opcional en versiones recientes)
-            Class.forName("org.postgresql.Driver");
-
             // Establecer conexión
             Connection conn = DriverManager.getConnection(url, user, password);
             System.out.println("Conexión exitosa a PostgreSQL!");
 
             // Ejemplo de consulta
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT version()");
+            ResultSet rs = stmt.executeQuery("SELECT * from Usuario");
 
-            if (rs.next()) {
-                System.out.println("Versión de PostgreSQL: " + rs.getString(1));
+            while (rs.next()) {
+                System.out.printf("%-5s | %-10s | %-12s | %-15s | %-10s | %-20s | %-20s | %-12s%n",
+                        rs.getString("id"),
+                        rs.getString("nombres"),
+                        rs.getString("apellidos"),
+                        rs.getDate("fechanacimiento"),
+                        rs.getString("contrasena"),
+                        rs.getString("direccion"),
+                        rs.getString("email"),
+                        rs.getString("telefono"));
             }
 
             // Cerrar recursos
