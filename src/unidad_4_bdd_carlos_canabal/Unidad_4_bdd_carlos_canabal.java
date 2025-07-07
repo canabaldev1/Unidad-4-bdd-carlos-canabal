@@ -4,10 +4,15 @@
  */
 package unidad_4_bdd_carlos_canabal;
 
+import Consultas.ConsultasRequeridas;
+import DAO.Inplementacion.CicloAcademicoDAOImp;
+import Menu.MenuAlumno;
+import Menu.MenuCicloAcademico;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Scanner;
 
 /**
  *
@@ -21,40 +26,31 @@ public class Unidad_4_bdd_carlos_canabal {
     public static void main(String[] args) {
         // TODO code application logic here
 
-        String url = "jdbc:postgresql://localhost:5432/gestion_escolar";
-        String user = "carlos_canabal";
-        String password = "Carlos123";
+        Scanner keyboard = new Scanner(System.in);
 
-        try {
-            // Establecer conexión
-            Connection conn = DriverManager.getConnection(url, user, password);
-            System.out.println("Conexión exitosa a PostgreSQL!");
+        while (true) {
+            System.out.println("\n=== MENÚ PRINCIPAL ===");
+            System.out.println("1. Ciclo Académico");
+            System.out.println("2. Alumno");
+            System.out.println("3. Salir");
+            System.out.print("Seleccione una opción: ");
 
-            // Ejemplo de consulta
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * from Usuario");
+            String opcion = keyboard.nextLine();
 
-            while (rs.next()) {
-                System.out.printf("%-5s | %-10s | %-12s | %-15s | %-10s | %-20s | %-20s | %-12s%n",
-                        rs.getString("id"),
-                        rs.getString("nombres"),
-                        rs.getString("apellidos"),
-                        rs.getDate("fechanacimiento"),
-                        rs.getString("contrasena"),
-                        rs.getString("direccion"),
-                        rs.getString("email"),
-                        rs.getString("telefono"));
+            switch (opcion) {
+                case "1":
+                    MenuCicloAcademico.mostrarMenu();
+                    break;
+                case "2":
+                    MenuAlumno.mostrarMenu();
+                    break;
+                case "3":
+                    System.out.println("Saliendo del sistema...");
+                    System.exit(0);
+                default:
+                    System.out.println("Opción no válida");
             }
-
-            // Cerrar recursos
-            rs.close();
-            stmt.close();
-            conn.close();
-        } catch (Exception e) {
-            System.err.println("Error de conexión: " + e.getMessage());
-            e.printStackTrace();
         }
 
     }
-
 }

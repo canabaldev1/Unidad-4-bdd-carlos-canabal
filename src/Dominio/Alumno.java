@@ -31,6 +31,32 @@ public class Alumno extends Usuario {
         this.parentesco = parentesco;
     }
 
+    public String getNombreAcudiente() {
+        return nombreAcudiente;
+    }
+
+    public void setNombreAcudiente(String nombreAcudiente) {
+        this.nombreAcudiente = nombreAcudiente;
+    }
+
+    public String getApellidoAcudiente() {
+        return apellidoAcudiente;
+    }
+
+    public void setApellidoAcudiente(String apellidoAcudiente) {
+        this.apellidoAcudiente = apellidoAcudiente;
+    }
+
+    public String getParentesco() {
+        return parentesco;
+    }
+
+    public void setParentesco(String parentesco) {
+        this.parentesco = parentesco;
+    }
+    
+    
+
     @Override
     public String toString() {
         return ("Alumno\n" + "--------------------------\n"
