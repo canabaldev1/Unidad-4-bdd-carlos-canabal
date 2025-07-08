@@ -7,6 +7,7 @@ package unidad_4_bdd_carlos_canabal;
 import Consultas.ConsultasRequeridas;
 import DAO.Inplementacion.CicloAcademicoDAOImp;
 import Menu.MenuAlumno;
+import Menu.MenuAsignatura;
 import Menu.MenuCicloAcademico;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -32,7 +33,8 @@ public class Unidad_4_bdd_carlos_canabal {
             System.out.println("\n=== MENÚ PRINCIPAL ===");
             System.out.println("1. Ciclo Académico");
             System.out.println("2. Alumno");
-            System.out.println("3. Salir");
+            System.out.println("3. Asignatura");
+            System.out.println("4. Salir");
             System.out.print("Seleccione una opción: ");
 
             String opcion = keyboard.nextLine();
@@ -45,6 +47,9 @@ public class Unidad_4_bdd_carlos_canabal {
                     MenuAlumno.mostrarMenu();
                     break;
                 case "3":
+                    MenuAsignatura.mostrarMenu();
+                    break;
+                case "4":
                     System.out.println("Saliendo del sistema...");
                     System.exit(0);
                 default:

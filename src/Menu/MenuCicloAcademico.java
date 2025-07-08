@@ -110,7 +110,12 @@ public class MenuCicloAcademico {
         nuevoCiclo.setAnio(Integer.parseInt(keyboard.nextLine()));
 
         System.out.print("Fecha de inicio (YYYY-MM-DD): ");
-        nuevoCiclo.setFechaInicio(LocalDate.parse(keyboard.nextLine()));
+        try {
+            nuevoCiclo.setFechaInicio(LocalDate.parse(keyboard.nextLine()));
+
+        } catch (Exception e) {
+            nuevoCiclo.setFechaInicio(LocalDate.parse("1990-01-01"));
+        }
 
         System.out.print("Fecha de fin (YYYY-MM-DD): ");
         nuevoCiclo.setFechaFin(LocalDate.parse(keyboard.nextLine()));
