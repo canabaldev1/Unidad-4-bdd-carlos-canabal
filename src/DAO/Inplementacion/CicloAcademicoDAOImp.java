@@ -33,6 +33,7 @@ public class CicloAcademicoDAOImp implements CicloAcademicoDAO {
 
     @Override
     public void actualizar(CicloAcademico ciclo) throws SQLException {
+        
         String sql = "UPDATE cicloacademico SET año = ?, fechainicio = ?, fechafin = ?, "
                 + "estado = ?, cantidadsemanas = ? WHERE id = ?";
 
