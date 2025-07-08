@@ -10,6 +10,7 @@ import Menu.MenuAlumno;
 import Menu.MenuAsignatura;
 import Menu.MenuCicloAcademico;
 import Menu.MenuClase;
+import Menu.MenuDesempeno;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -36,7 +37,8 @@ public class Unidad_4_bdd_carlos_canabal {
             System.out.println("2. Alumno");
             System.out.println("3. Asignatura");
             System.out.println("4. Clase");
-            System.out.println("5. Salir");
+            System.out.println("5. Desempeño");
+            System.out.println("6. Salir");
             System.out.print("Seleccione una opción: ");
 
             String opcion = keyboard.nextLine();
@@ -55,6 +57,9 @@ public class Unidad_4_bdd_carlos_canabal {
                     MenuClase.mostrarMenu();
                     break;
                 case "5":
+                    MenuDesempeno.mostrarMenu();
+                    break;
+                case "6":
                     System.out.println("Saliendo del sistema...");
                     System.exit(0);
                 default:
